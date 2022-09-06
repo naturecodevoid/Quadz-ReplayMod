@@ -4,10 +4,6 @@
   "key.quadz.follow" : "Follow LOS",
   "key.quadz.camera.raise" : "Camera Angle - Increase",
   "key.quadz.camera.lower" : "Camera Angle - Decrease",
-  "key.quadz.pitch.forward" : "Pitch Forward",
-  "key.quadz.pitch.backward" : "Pitch Backward",
-  "key.quadz.roll.left" : "Roll Left",
-  "key.quadz.roll.right" : "Roll Right",
 
   "entity.quadz.quadcopter" : "Quadcopter",
 

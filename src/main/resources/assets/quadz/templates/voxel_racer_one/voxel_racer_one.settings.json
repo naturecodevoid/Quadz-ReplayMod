@@ -1,14 +1,14 @@
 {
-	"id" : "voxel_racer_one",
-	"name" : "Voxel Racer 1",
-	"author" : "BlueVista",
-	"width" : 0.55,
-	"height" : 0.3,
-	"cameraX" : 0.175,
-	"cameraY" : 0.08,
- 	"mass" : 0.5,
-	"dragCoefficient" : 0.135,
-	"thrust" : 65,
-	"thrustCurve" : 1.0,
-	"cameraAngle" : 45
+	"id": "voxel_racer_one",
+	"name": "Racer",
+	"author": "BlueVista",
+	"width": 0.55,
+	"height": 0.3,
+	"cameraX": 0.175,
+	"cameraY": 0.08,
+ 	"mass": 0.5,
+	"dragCoefficient": 0.135,
+	"thrust": 55,
+	"thrustCurve": 1.0,
+	"cameraAngle": 40
 }

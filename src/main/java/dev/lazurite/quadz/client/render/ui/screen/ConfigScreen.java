@@ -1,8 +1,8 @@
 package dev.lazurite.quadz.client.render.ui.screen;
 
 import dev.lazurite.quadz.client.Config;
-import dev.lazurite.quadz.client.input.Mode;
 import dev.lazurite.quadz.client.input.InputTick;
+import dev.lazurite.quadz.client.input.Mode;
 import dev.lazurite.quadz.client.render.ui.osd.OnScreenDisplay;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
@@ -23,6 +23,7 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 @Environment(EnvType.CLIENT)
 public class ConfigScreen {
+    @SuppressWarnings("unchecked")
     public static Screen create(Screen parent) {
         ConfigBuilder builder = ConfigBuilder.create()
                 .setTitle(new TranslatableComponent("config.quadz.title"))
@@ -148,25 +149,25 @@ public class ConfigScreen {
                 new TranslatableComponent("config.quadz.entry.pitch_axis"), Config.getInstance().pitch)
                 .setDefaultValue(Config.getInstance().pitch)
                 .setSaveConsumer(value -> Config.getInstance().pitch = value)
-                .setMin(0).build();
+                .setMin(-1).build();
 
         IntegerListEntry yawEntry = builder.entryBuilder().startIntField(
                 new TranslatableComponent("config.quadz.entry.yaw_axis"), Config.getInstance().yaw)
                 .setDefaultValue(Config.getInstance().yaw)
                 .setSaveConsumer(value -> Config.getInstance().yaw = value)
-                .setMin(0).build();
+                .setMin(-1).build();
 
         IntegerListEntry rollEntry = builder.entryBuilder().startIntField(
                 new TranslatableComponent("config.quadz.entry.roll_axis"), Config.getInstance().roll)
                 .setDefaultValue(Config.getInstance().roll)
                 .setSaveConsumer(value -> Config.getInstance().roll = value)
-                .setMin(0).build();
+                .setMin(-1).build();
 
         IntegerListEntry throttleEntry = builder.entryBuilder().startIntField(
                 new TranslatableComponent("config.quadz.entry.throttle_axis"), Config.getInstance().throttle)
                 .setDefaultValue(Config.getInstance().throttle)
                 .setSaveConsumer(value -> Config.getInstance().throttle = value)
-                .setMin(0).build();
+                .setMin(-1).build();
 
         BooleanListEntry invertPitchEntry = builder.entryBuilder().startBooleanToggle(
                 new TranslatableComponent("config.quadz.entry.invert_pitch"), Config.getInstance().invertPitch)

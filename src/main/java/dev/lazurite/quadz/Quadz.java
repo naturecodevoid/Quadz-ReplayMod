@@ -1,21 +1,23 @@
 package dev.lazurite.quadz;
 
 import dev.lazurite.quadz.api.event.JoystickEvents;
-import dev.lazurite.quadz.client.input.InputTick;
-import dev.lazurite.quadz.client.network.ClientNetworkHandler;
 import dev.lazurite.quadz.client.Config;
-import dev.lazurite.quadz.client.input.keybind.*;
-import dev.lazurite.quadz.client.util.ClientTick;
+import dev.lazurite.quadz.client.input.InputTick;
+import dev.lazurite.quadz.client.input.keybind.CameraAngleKeybinds;
+import dev.lazurite.quadz.client.input.keybind.FollowKeybind;
+import dev.lazurite.quadz.client.input.keybind.NoClipKeybind;
+import dev.lazurite.quadz.client.network.ClientNetworkHandler;
 import dev.lazurite.quadz.client.render.QuadzRendering;
 import dev.lazurite.quadz.client.render.ui.toast.ControllerConnectedToast;
-import dev.lazurite.quadz.common.item.GogglesItem;
-import dev.lazurite.quadz.common.network.CommonNetworkHandler;
+import dev.lazurite.quadz.client.util.ClientTick;
 import dev.lazurite.quadz.common.data.template.TemplateLoader;
+import dev.lazurite.quadz.common.item.GogglesItem;
 import dev.lazurite.quadz.common.item.QuadcopterItem;
-import dev.lazurite.quadz.common.util.ServerTick;
 import dev.lazurite.quadz.common.item.group.ItemGroupHandler;
+import dev.lazurite.quadz.common.network.CommonNetworkHandler;
 import dev.lazurite.quadz.common.network.KeybindNetworkHandler;
 import dev.lazurite.quadz.common.quadcopter.entity.QuadcopterEntity;
+import dev.lazurite.quadz.common.util.ServerTick;
 import dev.lazurite.rayon.api.event.collision.PhysicsSpaceEvents;
 import dev.lazurite.rayon.impl.bullet.collision.body.EntityRigidBody;
 import dev.lazurite.toolbox.api.event.ClientEvents;
@@ -110,9 +112,7 @@ public class Quadz implements ModInitializer, ClientModInitializer {
 		/* Register Keybindings */
 		CameraAngleKeybinds.register();
 		NoClipKeybind.register();
-		ControlKeybinds.register();
 		FollowKeybind.register();
-		QuadConfigKeybind.register();
 
 		/* Register Packets */
 		PacketRegistry.registerClientbound(TEMPLATE, ClientNetworkHandler::onTemplateReceived);

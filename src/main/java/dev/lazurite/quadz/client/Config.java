@@ -27,10 +27,10 @@ public final class Config {
     private static final Path PATH = FabricLoader.getInstance().getConfigDir().resolve("quadz.json");
 
     @Setting @Setting.Constrain.Range(min = -1) public int controllerId;
-    @Setting @Setting.Constrain.Range(min = 0) public int throttle;
-    @Setting @Setting.Constrain.Range(min = 0) public int pitch;
-    @Setting @Setting.Constrain.Range(min = 0) public int roll;
-    @Setting @Setting.Constrain.Range(min = 0) public int yaw;
+    @Setting @Setting.Constrain.Range(min = -1) public int throttle;
+    @Setting @Setting.Constrain.Range(min = -1) public int pitch;
+    @Setting @Setting.Constrain.Range(min = -1) public int roll;
+    @Setting @Setting.Constrain.Range(min = -1) public int yaw;
     @Setting @Setting.Constrain.Range(min = 0, max = 1) public float deadzone;
     @Setting public boolean invertThrottle;
     @Setting public boolean invertPitch;

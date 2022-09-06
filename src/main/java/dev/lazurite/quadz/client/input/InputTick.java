@@ -5,7 +5,6 @@ import dev.lazurite.quadz.api.event.JoystickEvents;
 import dev.lazurite.quadz.client.Config;
 import dev.lazurite.quadz.client.util.ClientTick;
 import dev.lazurite.quadz.common.util.input.InputFrame;
-import dev.lazurite.quadz.client.input.keybind.ControlKeybinds;
 import dev.lazurite.toolbox.api.event.Event;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Mth;
@@ -62,12 +61,13 @@ public final class InputTick {
         }
 
         if (controllerExists()) {
-            FloatBuffer buffer = glfwGetJoystickAxes(Config.getInstance().controllerId);
+            FloatBuffer axes = glfwGetJoystickAxes(Config.getInstance().controllerId);
+
             frame.set(
-                    buffer.get(Config.getInstance().throttle),
-                    buffer.get(Config.getInstance().pitch),
-                    buffer.get(Config.getInstance().yaw),
-                    buffer.get(Config.getInstance().roll),
+                    (Config.getInstance().throttle == -1 ? 0 : (Config.getInstance().throttle > axes.limit() ? 0 : axes.get(Config.getInstance().throttle))),
+                    (Config.getInstance().pitch == -1 ? 0 : (Config.getInstance().pitch > axes.limit() ? 0 : axes.get(Config.getInstance().pitch))),
+                    (Config.getInstance().yaw == -1 ? 0 : (Config.getInstance().yaw > axes.limit() ? 0 : axes.get(Config.getInstance().yaw))),
+                    (Config.getInstance().roll == -1 ? 0 : (Config.getInstance().roll > axes.limit() ? 0 : axes.get(Config.getInstance().roll))),
                     Config.getInstance().rate,
                     Config.getInstance().superRate,
                     Config.getInstance().expo,
@@ -128,34 +128,6 @@ public final class InputTick {
 
             float throttle = getInputFrame().getThrottle();
             float yaw = 0.0f;
-
-            if (ControlKeybinds.pitchForward.isDown()) {
-                pitch += rate;
-            } else if (ControlKeybinds.pitchBackward.isDown()) {
-                pitch -= rate;
-            } else {
-                if (pitch > rate / 2.0f) {
-                    pitch -= rate;
-                } else if (pitch < rate / -2.0f) {
-                    pitch += rate;
-                } else {
-                    pitch = 0.0f;
-                }
-            }
-
-            if (ControlKeybinds.rollLeft.isDown()) {
-                roll -= rate;
-            } else if (ControlKeybinds.rollRight.isDown()) {
-                roll += rate;
-            } else {
-                if (roll > rate / 2.0f) {
-                    roll -= rate;
-                } else if (roll < rate / -2.0f) {
-                    roll += rate;
-                } else {
-                    roll = 0.0f;
-                }
-            }
 
             if (minecraft.options.keyRight.isDown()) {
                 yaw = -0.5f;

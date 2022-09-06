@@ -49,6 +49,12 @@
       "links": {
         "modmenu.discord": "https://discord.gg/NNPPHN7b3P"
       }
+    },
+    "sodium:options": {
+      "mixin.features.chunk_rendering": false
+    },
+    "lithium:options": {
+      "mixin.world.player_chunk_tick": false
     }
   }
 }
