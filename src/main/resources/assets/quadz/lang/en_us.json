@@ -19,6 +19,13 @@
   "message.quadz.follow_on" : "Follow LOS Enabled",
   "message.quadz.follow_off" : "Follow LOS Disabled",
 
+  "message.quadz.recording.start": "Started recording",
+  "message.quadz.recording.stop": "Stopped recording",
+  "message.quadz.recording.must_be_in_drone_view": "You must be in drone view to record",
+  "message.quadz.recording.currently_recording": "Recording",
+  "message.quadz.recording.saving": "Saving...",
+  "message.quadz.recording.done_saving": "Done saving!",
+
   "toast.quadz.controller.connect" : "Controller Connected!",
   "toast.quadz.controller.disconnect" : "Controller Disconnected!",
   "toast.quadz.controller.notfound" : "Controller Not found!",
@@ -34,6 +41,8 @@
 
   "config.quadz.entry.controller_id" : "Controller ID",
   "config.quadz.entry.controller_id.keyboard" : "Keyboard",
+  "config.quadz.entry.recording_rate": "Recording Rate (in ticks)",
+  "config.quadz.entry.toggle_recording": "Toggle Recording",
   "config.quadz.entry.pitch_axis" : "Pitch",
   "config.quadz.entry.yaw_axis" : "Yaw",
   "config.quadz.entry.roll_axis" : "Roll",

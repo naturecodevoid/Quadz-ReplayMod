@@ -31,6 +31,8 @@ public final class Config {
     @Setting @Setting.Constrain.Range(min = -1) public int pitch;
     @Setting @Setting.Constrain.Range(min = -1) public int roll;
     @Setting @Setting.Constrain.Range(min = -1) public int yaw;
+    @Setting @Setting.Constrain.Range(min = -1) public int toggleRecording;
+    @Setting @Setting.Constrain.Range(min = 1) public int recordingRate;
     @Setting @Setting.Constrain.Range(min = 0, max = 1) public float deadzone;
     @Setting public boolean invertThrottle;
     @Setting public boolean invertPitch;
@@ -62,6 +64,8 @@ public final class Config {
         this.pitch = 2;
         this.roll = 1;
         this.yaw = 3;
+        this.toggleRecording = -1;
+        this.recordingRate = 1;
         this.deadzone = 0.05f;
         this.invertThrottle = false;
         this.invertPitch = false;

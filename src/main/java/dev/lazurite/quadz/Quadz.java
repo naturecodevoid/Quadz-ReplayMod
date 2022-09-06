@@ -108,6 +108,7 @@ public class Quadz implements ModInitializer, ClientModInitializer {
 
 		/* Load the Config */
 		Config.getInstance().load();
+		ClientTick.EXPORT_DIR.mkdir();
 
 		/* Register Keybindings */
 		CameraAngleKeybinds.register();

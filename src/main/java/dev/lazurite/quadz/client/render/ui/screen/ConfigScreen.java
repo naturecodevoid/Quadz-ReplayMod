@@ -145,6 +145,18 @@ public class ConfigScreen {
 
         // region controller setup
 
+        IntegerListEntry recordingRateEntry = builder.entryBuilder().startIntField(
+                        new TranslatableComponent("config.quadz.entry.recording_rate"), Config.getInstance().recordingRate)
+                .setDefaultValue(Config.getInstance().recordingRate)
+                .setSaveConsumer(value -> Config.getInstance().recordingRate = value)
+                .setMin(1).build();
+
+        IntegerListEntry toggleRecordingEntry = builder.entryBuilder().startIntField(
+                new TranslatableComponent("config.quadz.entry.toggle_recording"), Config.getInstance().toggleRecording)
+                .setDefaultValue(Config.getInstance().toggleRecording)
+                .setSaveConsumer(value -> Config.getInstance().toggleRecording = value)
+                .setMin(-1).build();
+
         IntegerListEntry pitchEntry = builder.entryBuilder().startIntField(
                 new TranslatableComponent("config.quadz.entry.pitch_axis"), Config.getInstance().pitch)
                 .setDefaultValue(Config.getInstance().pitch)
@@ -204,6 +216,8 @@ public class ConfigScreen {
             String name = joysticks.get((int) value);
             modeSelector.setEditable((int) value != -1);
             maxAngleEntry.setEditable((int) value == -1 || modeSelector.getValue() == Mode.ANGLE);
+            recordingRateEntry.setEditable((int) value != -1);
+            toggleRecordingEntry.setEditable((int) value != -1);
             pitchEntry.setEditable((int) value != -1);
             yawEntry.setEditable((int) value != -1);
             rollEntry.setEditable((int) value != -1);
@@ -224,6 +238,8 @@ public class ConfigScreen {
         }).build());
 
         controllerSetup.addEntry(controllerSelectorBuilt.get());
+        controllerSetup.addEntry(recordingRateEntry);
+        controllerSetup.addEntry(toggleRecordingEntry);
         controllerSetup.addEntry(pitchEntry);
         controllerSetup.addEntry(yawEntry);
         controllerSetup.addEntry(rollEntry);
